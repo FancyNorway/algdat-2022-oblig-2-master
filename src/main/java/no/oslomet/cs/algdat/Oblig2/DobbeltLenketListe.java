@@ -120,7 +120,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             hale.forrige = nyNode;
             return true;
         }
-
+        Node temp = hale.forrige;
+        Node nyNode = new Node<T>(verdi);
+        temp.neste = nyNode;
+        nyNode.forrige = temp;
+        hale.forrige = nyNode;
         return true;
     }
 
