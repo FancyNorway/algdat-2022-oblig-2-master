@@ -113,9 +113,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if (tom()){
             hode = new Node<T>(null, null, null);
             hale = new Node<T>(null, null, null);
-            Node nyNode = new Node<T>(verdi);
-            nyNode.forrige = hode;
-            nyNode.neste = hale;
+            Node nyNode = new Node<T>(verdi, hale, hode);
             hode.neste = nyNode;
             hale.forrige = nyNode;
             return true;
