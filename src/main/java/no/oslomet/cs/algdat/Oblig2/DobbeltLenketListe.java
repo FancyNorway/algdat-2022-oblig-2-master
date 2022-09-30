@@ -69,9 +69,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 // Sjekker om vi er på siste Node og Oppdaterer current
                 if (i == a.length - 1) {
                     nyNode.neste = null;
-                } else {
-                    current = current.neste;
                 }
+                current = current.neste;
             }
 
         }
