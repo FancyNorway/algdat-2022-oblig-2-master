@@ -58,6 +58,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
 
         }
+        hale.forrige = current;
+        current.neste = null;
 
 
     }
