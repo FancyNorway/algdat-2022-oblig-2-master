@@ -130,7 +130,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void leggInn(int indeks, T verdi) {
-        Objects.requireNonNull(indeks, "Indeks skal ikke være en null-verdi");
         Objects.requireNonNull(verdi, "Verdi skal ikke være en null-verdi");
         antall();
         if (indeks < 0 || indeks > antall) throw
@@ -145,19 +144,39 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         // Verdien skal legges først
         if (indeks == 0)
         {
-
-            return;
+            Node temp = hode.neste;
+            Node nyNode = new Node(verdi);
+            nyNode.forrige = hode;
+            nyNode.neste = temp;
+            hode.neste = nyNode;
+            temp.forrige = nyNode;
+        return;
         }
 
         // Verdien skal legges bakerst
         if (indeks == antall)
         {
-
+            Node temp = hale.forrige;
+            Node nyNode = new Node(verdi);
+            nyNode.neste = hale;
+            nyNode.forrige = temp;
+            temp.neste = hale;
             return;
         }
 
         // verdien skal legges mellom to andre verdier
 
+        Node current = hode;
+        int posisjon = 0;
+        while(posisjon < indeks){
+            current = current.neste;
+        }
+        Node temp = current.neste;
+        Node nyNode = new Node(verdi);
+        nyNode.neste = temp;
+        nyNode.forrige = current;
+        temp.forrige = nyNode;
+        current.neste = nyNode;
 
 
     }
