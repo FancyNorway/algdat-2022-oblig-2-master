@@ -50,6 +50,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Objects.requireNonNull(a,"Tabellen a er null!");
 
         Node current = hode;
+        current.forrige = null;
 
 
         for(int i = 0; i < a.length; i++){
@@ -57,7 +58,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 current.verdi = a[i];
                 current = current.neste;
             }
-
 
         }
 
