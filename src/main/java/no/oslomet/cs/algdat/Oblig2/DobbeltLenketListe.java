@@ -52,12 +52,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Node<T> current = hode.neste;
         hode.neste = current;
         current.forrige = hode;
-
-
-
-        for(int i = 0; i < a.length; i++){
+        current.verdi = a[0];
+        for(int i = 1; i < a.length; i++){
             if(a[i] != null){
-                current.neste = new Node<>(a[i], current.forrige, current.neste);
+                current.neste = new Node<>(a[i]);
+                current = current.neste;
+                current.forrige =
                 current = current.neste;
             }
 
