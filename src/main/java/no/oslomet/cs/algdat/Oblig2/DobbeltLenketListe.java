@@ -47,7 +47,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         Objects.requireNonNull(a, "Tabellen a er null!");
 
-        if (a.length != 0) return;
+        if (a.length == 0) return;
 
         hode = new Node<T>(null, null, null);
         hale = new Node<T>(null, null, null);
