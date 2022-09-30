@@ -47,37 +47,35 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         Objects.requireNonNull(a, "Tabellen a er null!");
 
-        if (a.length != 0) {
-            hode = new Node<T>(null, null, null);
-            hale = new Node<T>(null, null, null);
-            Node<T> current = hode;
+        if (a.length != 0) return;
 
+        hode = new Node<T>(null, null, null);
+        hale = new Node<T>(null, null, null);
+        Node<T> current = hode;
 
-            for (int i = 0; i < a.length; i++) {
-                if (a[i] != null) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != null) {
+                // Lager en ny node med verdi a[i]
+                Node nyNode = new Node<T>(a[i]);
 
-                    // Lager en ny node med verdi a[i]
-                    Node nyNode = new Node<T>(a[i]);
+                // Legger til neste
+                current.neste = nyNode;
 
-                    // Legger til neste
-                    current.neste = nyNode;
-
-                    // Legger til forrige
-                    if (i != 0) {
-                        nyNode.forrige = current;
-                    }
-
-                    // Sjekker om vi er på siste Node og Oppdaterer current
-                    if (i == a.length - 1) {
-                        nyNode.neste = null;
-                    } else {
-                        current = current.neste;
-                    }
+                // Legger til forrige
+                if (i != 0) {
+                    nyNode.forrige = current;
                 }
 
+                // Sjekker om vi er på siste Node og Oppdaterer current
+                if (i == a.length - 1) {
+                    nyNode.neste = null;
+                } else {
+                    current = current.neste;
+                }
             }
-            hale.forrige = current;
+
         }
+            hale.forrige = current;
     }
 
     public Liste<T> subliste(int fra, int til) {
