@@ -149,10 +149,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         if (indeks < antall/2){
             Node current = hode;
-
-            while(antall < indeks){
+            int counter = 0;
+            while(counter < indeks){
                 current = current.neste;
-                antall++;
+                counter++;
             }
             return current;
 
@@ -167,7 +167,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T hent(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks, false);
     }
 
     @Override
