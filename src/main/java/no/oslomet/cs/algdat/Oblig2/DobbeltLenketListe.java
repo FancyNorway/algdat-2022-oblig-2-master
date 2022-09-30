@@ -55,10 +55,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         current.verdi = a[0];
         for(int i = 1; i < a.length; i++){
             if(a[i] != null){
-                current.neste = new Node<>(a[i]);
+                current.neste = new Node<>(a[i], current, current.neste.neste);
                 current = current.neste;
-                current.forrige =
-                current = current.neste;
+
             }
 
         }
