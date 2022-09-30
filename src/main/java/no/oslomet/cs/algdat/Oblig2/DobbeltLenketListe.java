@@ -40,7 +40,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     public DobbeltLenketListe() {
 
-
     }
 
     public DobbeltLenketListe(T[] a) {
@@ -131,7 +130,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void leggInn(int indeks, T verdi) {
-        if (indeks < 0 || indeks > antall) return;
+        Objects.requireNonNull(indeks, "Indeks skal ikke være en null-verdi");
+        Objects.requireNonNull(verdi, "Verdi skal ikke være en null-verdi");
+        antall();
+        if (indeks < 0 || indeks > antall) throw
+            new IndexOutOfBoundsException("Indexen må være i intervallet [0, antall]");
 
 
 
