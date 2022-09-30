@@ -50,6 +50,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         hode.verdi = null;
         hode.forrige = null;
         Node<T> current = hode.neste;
+        hode.neste = current;
         current.forrige = hode;
 
 
