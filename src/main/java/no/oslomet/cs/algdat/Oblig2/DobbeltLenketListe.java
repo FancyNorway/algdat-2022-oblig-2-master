@@ -179,10 +179,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             return current;
 
         }
+        int counter = antall;
         Node current = hale;
-        while (antall > indeks){
+        while (counter > indeks){
             current = current.forrige;
-            antall--;
+            counter--;
         }
         return current;
     }
