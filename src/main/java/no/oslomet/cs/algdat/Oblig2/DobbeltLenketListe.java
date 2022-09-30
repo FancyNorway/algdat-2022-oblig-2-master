@@ -131,9 +131,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public void leggInn(int indeks, T verdi) {
         Objects.requireNonNull(verdi, "Verdi skal ikke være en null-verdi");
-        antall = antall();
 
-        if (indeks < 0 || indeks > antall) throw
+        int listeAntall = antall();
+        if (indeks < 0 || indeks > listeAntall) throw
             new IndexOutOfBoundsException("Indexen må være i intervallet [0, antall]");
 
         // Listen er tom
@@ -241,7 +241,30 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException();
+        Node current = hode;
+        for(int i = 0; i < antall; i++){
+            if (verdi == current.verdi){
+                if(i == 0){
+                    Node temp = current.neste;
+                    temp.forrige = hode;
+                    hode.neste = temp;
+                    return true;
+                }
+                if(i == antall-1){
+                    Node temp = current.forrige;
+                    temp.neste = hale;
+                    hale.forrige = temp;
+                    return true;
+                }
+                Node temp1 = current.forrige;
+                Node temp2 = current.neste;
+                temp1 = temp2.neste;
+                temp2 = temp1.forrige;
+                return true;
+            }
+            current = current.neste;
+        }
+        return false;
     }
 
     @Override
