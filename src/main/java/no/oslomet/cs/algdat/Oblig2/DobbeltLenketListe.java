@@ -131,7 +131,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public void leggInn(int indeks, T verdi) {
         Objects.requireNonNull(verdi, "Verdi skal ikke være en null-verdi");
-        antall();
+        antall = antall();
+
         if (indeks < 0 || indeks > antall) throw
             new IndexOutOfBoundsException("Indexen må være i intervallet [0, antall]");
 
@@ -170,6 +171,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         int posisjon = 0;
         while(posisjon < indeks){
             current = current.neste;
+            posisjon++;
         }
         Node temp = current.neste;
         Node nyNode = new Node(verdi);
