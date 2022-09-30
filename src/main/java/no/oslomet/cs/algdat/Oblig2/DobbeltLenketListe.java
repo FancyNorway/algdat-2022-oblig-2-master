@@ -7,6 +7,7 @@ package no.oslomet.cs.algdat.Oblig2;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 
 public class DobbeltLenketListe<T> implements Liste<T> {
@@ -45,8 +46,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public DobbeltLenketListe(T[] a) {
-        if(tom()){
+        if(a == null){
             throw new NullPointerException("Tabellen a er null!");
+        }
+        Objects.requireNonNull(a, "A er null!");
+
+        for(int i = 0; i < a.length; i++){
+
+
         }
 
 
@@ -67,6 +74,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         while(current.neste != null){
             antall++;
             current = current.neste;
+
         }
         return antall;
     }
