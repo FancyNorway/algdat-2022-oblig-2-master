@@ -209,7 +209,33 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public String omvendtString() {
-        throw new UnsupportedOperationException();
+        StringBuilder s = new StringBuilder();
+        s.append('[');
+
+        // Starter på Hale og sjekker om det er null
+        Node current = hale;
+        if (current == null) {
+            s.append(']');
+            return s.toString();
+        }
+
+        // Går til siste element
+        current = current.forrige;
+
+        // Looper gjennom
+        while(current.forrige != null){
+            s.append(current.verdi);
+            current = current.forrige;
+            if (current.verdi != null) {
+                s.append(','); s.append(' ');
+            }
+        }
+        // Legger til veriden av det siste Elementet
+        if (current.verdi != null) {
+            s.append(current.verdi);
+        }
+        s.append(']');
+        return s.toString();
     }
 
     @Override
