@@ -122,6 +122,26 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         throw new UnsupportedOperationException();
     }
 
+    private Node <T> finnNode(int indeks){
+
+        if (indeks < antall/2){
+            Node current = hode;
+
+            while(antall < indeks){
+                current = current.neste;
+                antall++;
+            }
+            return current;
+
+        }
+        Node current = hale;
+        while (antall > indeks){
+            current = current.forrige;
+            antall--;
+        }
+        return current;
+    }
+
     @Override
     public T hent(int indeks) {
         throw new UnsupportedOperationException();
