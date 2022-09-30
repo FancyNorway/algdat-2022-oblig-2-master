@@ -136,6 +136,28 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if (indeks < 0 || indeks > antall) throw
             new IndexOutOfBoundsException("Indexen må være i intervallet [0, antall]");
 
+        // Listen er tom
+        if (tom()) {
+            leggInn(verdi);
+            return;
+        }
+
+        // Verdien skal legges først
+        if (indeks == 0)
+        {
+
+            return;
+        }
+
+        // Verdien skal legges bakerst
+        if (indeks == antall)
+        {
+
+            return;
+        }
+
+        // verdien skal legges mellom to andre verdier
+
 
 
     }
