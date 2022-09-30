@@ -193,9 +193,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         StringBuilder s = new StringBuilder();
         s.append('[');
 
-        // Starter på hode og sjekker om det er null
+        // Starter på hode og sjekker om listen er tom
         Node current = hode;
-        if (current == null) {
+        int listeAntall = antall();
+        if (listeAntall == 0) {
             s.append(']');
             return s.toString();
         }
@@ -204,16 +205,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         current = current.neste;
 
         // Looper gjennom
-        while(current.neste != null){
-            s.append(current.verdi);
-            current = current.neste;
+        for (int i = 0; i < listeAntall; i++){
             if (current.verdi != null) {
-                s.append(','); s.append(' ');
+                s.append(current.verdi);
             }
-        }
-        // Legger til veriden av det siste Elementet
-        if (current.verdi != null) {
-            s.append(current.verdi);
+            if (current.neste != null) {
+                current = current.neste;
+                if (current.verdi != null) {
+                    s.append(','); s.append(' ');
+                }
+            }
         }
         s.append(']');
         return s.toString();
