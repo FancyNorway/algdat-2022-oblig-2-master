@@ -50,12 +50,22 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int antall() {
-        throw new UnsupportedOperationException();
+        int antall = 0;
+        Node current = hode;
+
+        while(current.neste != null){
+            antall++;
+            current = current.neste;
+        }
+        return antall;
     }
 
     @Override
     public boolean tom() {
-        throw new UnsupportedOperationException();
+        if(hode == null){
+            return true;
+        }
+        return false;
     }
 
     @Override
