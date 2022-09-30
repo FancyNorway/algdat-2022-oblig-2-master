@@ -201,11 +201,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         // Looper gjennom
         while(current.neste != null){
-            s.append(current.verdi); s.append(','); s.append(' ');
+            s.append(current.verdi);
             current = current.neste;
+            if (current.verdi != null) {
+                s.append(','); s.append(' ');
+            }
         }
         // Legger til veriden av det siste Elementet
-        s.append(current.verdi);
+        if (current.verdi != null) {
+            s.append(current.verdi);
+        }
         s.append(']');
         return s.toString();
     }
