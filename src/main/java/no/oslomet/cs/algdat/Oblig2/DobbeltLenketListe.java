@@ -47,14 +47,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         Objects.requireNonNull(a,"Tabellen a er null!");
 
-        hode.verdi = null;
+        this.hode.verdi = null;
         hode.forrige = null;
         Node<T> current = hode.neste;
         hode.neste = current;
         current.forrige = hode;
         current.verdi = a[0];
+        hale.verdi = null;
+        hale.neste = null;
         for(int i = 1; i < a.length; i++){
             if(a[i] != null){
+                if(i == a.length-1){
+                    current.neste = new Node<>(a[i], current, hale);
+                }
                 current.neste = new Node<>(a[i], current, current.neste.neste);
                 current = current.neste;
 
