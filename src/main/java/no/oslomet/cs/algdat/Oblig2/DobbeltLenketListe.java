@@ -49,10 +49,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(a == null){
             throw new NullPointerException("Tabellen a er null!");
         }
-        Objects.requireNonNull(a, "A er null!");
+
+        Node current = hode;
+
 
         for(int i = 0; i < a.length; i++){
-
+            Objects.requireNonNull(a[i], "A sitt element nr " + i + " er null!");
+            current.verdi = a[i];
+            current = current.neste;
 
         }
 
