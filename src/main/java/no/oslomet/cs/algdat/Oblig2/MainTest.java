@@ -7,8 +7,10 @@ public class MainTest {
         liste.leggInn(2);
         liste.leggInn(3);
 
-        String s = liste.toString();
-        System.out.println(s);
+        int tall = 0;
+        int a = liste.indeksTil(tall);
+        boolean b = liste.inneholder(tall);
+        System.out.println("Inneholder: " + b + " Plass: " + a);
 
     }
 }
