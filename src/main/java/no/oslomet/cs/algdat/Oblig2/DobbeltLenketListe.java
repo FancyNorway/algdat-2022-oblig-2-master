@@ -74,7 +74,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
 
         }
-            hale.forrige = current;
+        hale.forrige = current;
+        this.antall = a.length;
     }
 
     public Liste<T> subliste(int fra, int til) {
@@ -130,7 +131,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void leggInn(int indeks, T verdi) {
-        throw new UnsupportedOperationException();
+        if (indeks < 0 || indeks > antall) return;
+
+
+
     }
 
     @Override
