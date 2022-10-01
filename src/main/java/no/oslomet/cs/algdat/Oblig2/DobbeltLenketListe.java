@@ -307,18 +307,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public boolean fjern(T verdi) {
         Node current = hode;
+        if(verdi == null) return false;
         for(int i = 0; i < antall; i++){
             if (verdi == current.verdi){
                 if(i == 0){
                     Node temp = current.neste;
-                    temp.forrige = hode;
                     hode.neste = temp;
+                    current.neste = null;
+                    temp.forrige = null;
                     return true;
                 }
                 if(i == antall-1){
                     Node temp = current.forrige;
-                    temp.neste = hale;
                     hale.forrige = temp;
+                    current.forrige = null;
+                    temp.neste = null;
                     return true;
                 }
                 Node temp1 = current.forrige;
@@ -349,12 +352,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     Node temp = current.neste;
                     temp.forrige = null;
                     hode.neste = temp;
-
+                    break;
                 }
                 if(i == antall-1){
                     Node temp = current.forrige;
                     temp.neste = null;
                     hale.forrige = temp;
+                    break;
                 }
 
                 Node temp1 = current.forrige;
@@ -363,6 +367,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 temp2.forrige = temp1;
                 current.neste = null;
                 current.forrige = null;
+                break;
             }
             current = current.neste;
         }
