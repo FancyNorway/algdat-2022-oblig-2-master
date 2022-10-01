@@ -74,23 +74,43 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         this.antall = a.length;
     }
 
-    public Liste<T> subliste(int fra, int til)
+    public void fratilKontroll(int tablengde, int fra, int til)
     {
-        DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();
-
         // fra er negativ
-        if (fra < 0) throw new ArrayIndexOutOfBoundsException
+        if (fra < 0) throw new IndexOutOfBoundsException
                 ("fra(" + fra + ") er negativ!");
 
         // til er utenfor listen
-        if (til > antall) throw new ArrayIndexOutOfBoundsException
-                ("til(" + til + ") > tablengde(" + antall + ")");
+        if (til > tablengde) throw new IndexOutOfBoundsException
+                ("til(" + til + ") > tablengde(" + tablengde + ")");
 
         // fra er større enn til
         if (fra > til) throw new IllegalArgumentException
                 ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
+    }
 
+    public Liste<T> subliste(int fra, int til)
+    {
+        fratilKontroll(antall, fra, til);
+        DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();
+        liste.endringer = 0;
+        Node current = hode.neste;
+        int nr = 0;
 
+        // Kommer til første node
+        while (nr < fra) {
+            current = current.neste;
+            nr++;
+        }
+
+        // Looper gjennom [fra, til>
+        int index = 0;
+        while (nr < til) {
+            liste.leggInn(index,(T) current.verdi);
+            current = current.neste;
+            nr++;
+            index++;
+        }
 
         return liste;
     }
