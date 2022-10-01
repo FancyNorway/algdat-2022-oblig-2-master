@@ -243,8 +243,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     @Override
-    public T oppdater(int indeks, T nyverdi) {
-        throw new UnsupportedOperationException();
+    public T oppdater(int indeks, T nyverdi)
+    {
+        if (indeks < 0) {
+            throw new IndexOutOfBoundsException(melding(indeks));
+        }
+        if (indeks >= antall) {
+            throw new IndexOutOfBoundsException(melding(indeks));
+        }
+        if (nyverdi == null) {
+            throw new NullPointerException("Nyverdi kan ikke være null");
+        }
+        Node listeNode = finnNode(indeks);
+        T gammelVerdi = (T) listeNode.verdi;
+        listeNode.verdi = nyverdi;
+        return gammelVerdi;
     }
 
     @Override
