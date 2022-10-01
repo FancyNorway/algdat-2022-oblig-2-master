@@ -200,7 +200,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         // Verdien skal legges bakerst
-        if (indeks == antall)
+        if (indeks == antall-1)
         {
             Node temp = hale.forrige;
             Node nyNode = new Node(verdi);
