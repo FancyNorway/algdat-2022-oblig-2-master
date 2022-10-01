@@ -2,15 +2,13 @@ package no.oslomet.cs.algdat.Oblig2;
 
 public class MainTest {
     public static void main(String[] args) {
-        DobbeltLenketListe<Integer> liste = new DobbeltLenketListe<>();
-        liste.leggInn(1);
-        liste.leggInn(2);
-        liste.leggInn(3);
+        Liste<Integer> testliste = new DobbeltLenketListe<>();
+        for (int i = 0; i < 100000; i++) testliste.leggInn(i);
+        long tid = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++) testliste.hent(99999);
+        tid = System.currentTimeMillis() - tid;
 
-        int tall = 0;
-        int a = liste.indeksTil(tall);
-        boolean b = liste.inneholder(tall);
-        System.out.println("Inneholder: " + b + " Plass: " + a);
+        System.out.println(tid);
 
     }
 }

@@ -11,7 +11,6 @@ class Oblig2Test {
     void oppgave1() {
         int antallFeil = 0;
         Liste<Integer> liste = new DobbeltLenketListe<>();
-        System.out.println(liste.antall() + " " + liste.tom());
 
         if (liste.antall() != 0) {
             antallFeil++;
@@ -131,7 +130,6 @@ class Oblig2Test {
 
         Integer[] tall = {1, 2, 3, 4, 5};
         Test<Integer> testliste = new Test(tall);
-
 
         if (testliste.antall() > 5) {
             antallFeil++;
