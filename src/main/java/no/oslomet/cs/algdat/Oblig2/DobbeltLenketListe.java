@@ -101,7 +101,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             return antall = 0;
         }
         int antall = 0;
-        Node current = hode.neste;
+        Node current = hode;
 
         while(current.neste != null){
             antall++;
