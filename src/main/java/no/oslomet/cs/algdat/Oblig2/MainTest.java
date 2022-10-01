@@ -2,18 +2,13 @@ package no.oslomet.cs.algdat.Oblig2;
 
 public class MainTest {
     public static void main(String[] args) {
-        DobbeltLenketListe<Integer> liste = new DobbeltLenketListe<>();
-
-        liste.leggInn(1);
-
-        liste.leggInn(2);
-        liste.leggInn(3);
-        liste.leggInn(4);
-
-        if (liste.hent(3) != 4 || liste.hent(2) != 3
-                || liste.hent(1) != 2 || liste.hent(0) != 1) {
-            System.out.println("Oppgave 3i: Metoden hent() gir feil svar!");
-        }
+        Character[] c = {'A','B','C','D','E','F','G','H','I','J',};
+        DobbeltLenketListe<Character> liste = new DobbeltLenketListe<>(c);
+        System.out.println(
+                liste.subliste(3,8));  // [D, E, F, G, H]
+        System.out.println(liste.subliste(5,5));  // []
+        System.out.println(liste.subliste(8,liste.antall()));  // [I, J]
+        // System.out.println(liste.subliste(0,11));  // skal kaste unntak
 
     }
 }
