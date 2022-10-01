@@ -193,7 +193,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         if (indeks < antall/2){
             Node current = hode;
-            int counter = 0;
+            int counter = -1;
             while(counter < indeks){
                 current = current.neste;
                 counter++;

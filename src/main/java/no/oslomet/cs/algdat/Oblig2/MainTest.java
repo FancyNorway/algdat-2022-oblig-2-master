@@ -6,23 +6,13 @@ public class MainTest {
 
         liste.leggInn(1);
 
-        try {
-            liste.hent(-1);
-            System.out.println("Oppgave 3d: Feil i indeks-sjekken!");
-        } catch (Exception e) {
-            if (!(e instanceof IndexOutOfBoundsException)) {
-                System.out.println("Oppgave 3e: Metoden hent() kaster feil type unntak!");
-            }
-        }
+        liste.leggInn(2);
+        liste.leggInn(3);
+        liste.leggInn(4);
 
-        try {
-            liste.hent(1);
-            System.out.println("Oppgave 3f: Feil i indeks-sjekken!");
-        } catch (Exception e) {
-            System.out.println(e);
-            if (!(e instanceof IndexOutOfBoundsException)) {
-                System.out.println("Oppgave 3g: Metoden hent() kaster feil type unntak!");
-            }
+        if (liste.hent(3) != 4 || liste.hent(2) != 3
+                || liste.hent(1) != 2 || liste.hent(0) != 1) {
+            System.out.println("Oppgave 3i: Metoden hent() gir feil svar!");
         }
 
     }
