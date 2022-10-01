@@ -323,8 +323,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 }
                 Node temp1 = current.forrige;
                 Node temp2 = current.neste;
-                temp1 = temp2.neste;
-                temp2 = temp1.forrige;
+                temp1.neste = temp2;
+                temp2.forrige = temp1;
+                current.neste = null;
+                current.forrige = null;
                 return true;
             }
             current = current.neste;
@@ -337,24 +339,35 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(indeks < 0 || indeks > antall-1)
             throw new IndexOutOfBoundsException("indeks er for stor elr liten");
 
-        Node current = hode;
+        Node current = hode.neste;
         T verdi = hode.verdi;
         for (int i = 0; i<antall; i++){
             if(indeks == i ){
                 verdi = (T)current.verdi;
+
                 if(i == 0){
                     Node temp = current.neste;
-                    temp.forrige = hode;
+                    temp.forrige = null;
                     hode.neste = temp;
+
                 }
                 if(i == antall-1){
                     Node temp = current.forrige;
-                    temp.neste = hale;
+                    temp.neste = null;
                     hale.forrige = temp;
                 }
+
+                Node temp1 = current.forrige;
+                Node temp2 = current.neste;
+                temp1.neste = temp2;
+                temp2.forrige = temp1;
+                current.neste = null;
+                current.forrige = null;
             }
             current = current.neste;
         }
+        antall -= 1;
+        endringer += 1;
         return verdi;
     }
 
