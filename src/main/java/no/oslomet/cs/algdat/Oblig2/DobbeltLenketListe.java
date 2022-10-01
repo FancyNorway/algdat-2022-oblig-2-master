@@ -334,6 +334,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T fjern(int indeks) {
+        if(indeks < 0 || indeks > antall-1)
+            throw new IndexOutOfBoundsException("indeks er for stor elr liten");
+
         Node current = hode;
         T verdi = hode.verdi;
         for (int i = 0; i<antall; i++){
