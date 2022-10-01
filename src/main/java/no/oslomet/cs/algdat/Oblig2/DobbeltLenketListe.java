@@ -193,7 +193,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         {
             Node temp = hode.neste;
             Node nyNode = new Node(verdi);
-            nyNode.forrige = hode;
             nyNode.neste = temp;
             hode.neste = nyNode;
             temp.forrige = nyNode;
@@ -205,9 +204,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         {
             Node temp = hale.forrige;
             Node nyNode = new Node(verdi);
-            nyNode.neste = hale;
+            hale.forrige = nyNode;
             nyNode.forrige = temp;
-            temp.neste = hale;
+            temp.neste = nyNode;
             return;
         }
 
@@ -225,7 +224,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         nyNode.forrige = current;
         temp.forrige = nyNode;
         current.neste = nyNode;
-
 
     }
 
