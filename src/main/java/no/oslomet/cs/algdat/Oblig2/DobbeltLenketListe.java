@@ -4,10 +4,7 @@ package no.oslomet.cs.algdat.Oblig2;
 ////////////////// class DobbeltLenketListe //////////////////////////////
 
 
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Objects;
+import java.util.*;
 
 
 public class DobbeltLenketListe<T> implements Liste<T> {
@@ -77,8 +74,25 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         this.antall = a.length;
     }
 
-    public Liste<T> subliste(int fra, int til) {
-        throw new UnsupportedOperationException();
+    public Liste<T> subliste(int fra, int til)
+    {
+        DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();
+
+        // fra er negativ
+        if (fra < 0) throw new ArrayIndexOutOfBoundsException
+                ("fra(" + fra + ") er negativ!");
+
+        // til er utenfor listen
+        if (til > antall) throw new ArrayIndexOutOfBoundsException
+                ("til(" + til + ") > tablengde(" + antall + ")");
+
+        // fra er større enn til
+        if (fra > til) throw new IllegalArgumentException
+                ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
+
+
+
+        return liste;
     }
 
     @Override
