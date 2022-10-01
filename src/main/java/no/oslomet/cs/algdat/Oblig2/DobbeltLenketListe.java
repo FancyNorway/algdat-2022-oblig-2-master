@@ -334,6 +334,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
             current = current.neste;
         }
+        antall -= 1;
+        endringer += 1;
         return false;
     }
 
