@@ -641,6 +641,7 @@ class Oblig2Test {
         liste.leggInn(0, 1);  // ny verdi forrest
         liste.leggInn(6, 7);  // ny verdi legges bakerst
 
+
         if (liste.antall() != 7) {
             antallFeil++;
             System.out.println(
