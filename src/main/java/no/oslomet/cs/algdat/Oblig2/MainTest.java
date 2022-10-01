@@ -19,6 +19,7 @@ public class MainTest {
             liste.hent(1);
             System.out.println("Oppgave 3f: Feil i indeks-sjekken!");
         } catch (Exception e) {
+            System.out.println(e);
             if (!(e instanceof IndexOutOfBoundsException)) {
                 System.out.println("Oppgave 3g: Metoden hent() kaster feil type unntak!");
             }

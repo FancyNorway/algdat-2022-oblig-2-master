@@ -110,6 +110,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public boolean leggInn(T verdi) {
         Objects.requireNonNull(verdi, "Dette er en null-verdi");
+        antall += 1;
         if (tom()){
             hode = new Node<T>(null, null, null);
             hale = new Node<T>(null, null, null);
@@ -131,7 +132,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public void leggInn(int indeks, T verdi) {
         Objects.requireNonNull(verdi, "Verdi skal ikke være en null-verdi");
-
+        antall += 1;
         int listeAntall = antall();
         if (indeks < 0 || indeks > listeAntall) throw
             new IndexOutOfBoundsException("Indexen må være i intervallet [0, antall]");
@@ -211,7 +212,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T hent(int indeks) {
-        indeksKontroll(indeks, false);
+        // indeksKontroll(indeks, false);
+        // IndeksKontroll bruker ca. 1500 ms derfor kan vi ikke bruke den når testen krever max 20ms runtime
+        if (indeks < 0) {
+            throw new IndexOutOfBoundsException(melding(indeks));
+        }
+        if (indeks >= antall) {
+            throw new IndexOutOfBoundsException(melding(indeks));
+        }
         return finnNode(indeks).verdi;
     }
 
