@@ -45,6 +45,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         if (a.length == 0) return;
 
+        boolean ikkeNullVerdi = false;
+        for (T verdi: a) {
+            if (verdi != null) {
+                ikkeNullVerdi = true;
+                break;
+            }
+        }
+
+        if (!ikkeNullVerdi) return;
+
         hode = new Node<T>(null, null, null);
         hale = new Node<T>(null, null, null);
         Node<T> current = hode;
@@ -121,8 +131,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(tom()){
             return antall = 0;
         }
-        int antall = 0;
-        Node current = hode;
+        int antall = 1;
+        Node current = hode.neste;
 
         while(current.neste != null){
             antall++;
