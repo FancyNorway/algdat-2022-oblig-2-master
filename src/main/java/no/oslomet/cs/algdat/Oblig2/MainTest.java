@@ -2,13 +2,27 @@ package no.oslomet.cs.algdat.Oblig2;
 
 public class MainTest {
     public static void main(String[] args) {
-        Liste<Integer> testliste = new DobbeltLenketListe<>();
-        for (int i = 0; i < 100000; i++) testliste.leggInn(i);
-        long tid = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) testliste.hent(99999);
-        tid = System.currentTimeMillis() - tid;
+        DobbeltLenketListe<Integer> liste = new DobbeltLenketListe<>();
 
-        System.out.println(tid);
+        liste.leggInn(1);
+
+        try {
+            liste.hent(-1);
+            System.out.println("Oppgave 3d: Feil i indeks-sjekken!");
+        } catch (Exception e) {
+            if (!(e instanceof IndexOutOfBoundsException)) {
+                System.out.println("Oppgave 3e: Metoden hent() kaster feil type unntak!");
+            }
+        }
+
+        try {
+            liste.hent(1);
+            System.out.println("Oppgave 3f: Feil i indeks-sjekken!");
+        } catch (Exception e) {
+            if (!(e instanceof IndexOutOfBoundsException)) {
+                System.out.println("Oppgave 3g: Metoden hent() kaster feil type unntak!");
+            }
+        }
 
     }
 }

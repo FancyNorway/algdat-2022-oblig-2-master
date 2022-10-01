@@ -74,7 +74,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         }
         hale.forrige = current;
-        this.antall = a.length;
+        antall = a.length;
     }
 
     public Liste<T> subliste(int fra, int til) {
@@ -86,7 +86,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(tom()){
             return antall = 0;
         }
-        int antall = 0;
         Node current = hode;
 
         while(current.neste != null){
@@ -118,6 +117,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             nyNode.neste = hale;
             hode.neste = nyNode;
             hale.forrige = nyNode;
+            antall = 1;
             return true;
         }
         Node temp = hale.forrige;
@@ -125,6 +125,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         temp.neste = nyNode;
         nyNode.forrige = temp;
         hale.forrige = nyNode;
+        antall++;
         return true;
     }
 
@@ -213,8 +214,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public T hent(int indeks) {
         // indeksKontroll(indeks, false);
         // IndeksKontroll bruker ca. 1500 ms derfor kan vi ikke bruke den når testen krever max 20ms runtime
-        boolean leggInn = false;
-        if (indeks < 0) {
+        if (indeks < 0 || indeks >= antall) {
             throw new IndexOutOfBoundsException(melding(indeks));
         }
         return finnNode(indeks).verdi;
