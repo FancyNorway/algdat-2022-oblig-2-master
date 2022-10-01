@@ -82,7 +82,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         // til er utenfor listen
         if (til > tablengde) throw new IndexOutOfBoundsException
-                ("til(" + til + ") > tablengde(" + tablengde + ")");
+                ("til(" + til + ") > antall(" + tablengde + ")");
 
         // fra er større enn til
         if (fra > til) throw new IllegalArgumentException
@@ -94,6 +94,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         fratilKontroll(antall, fra, til);
         DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();
         liste.endringer = 0;
+        if (hode == null) return liste;
         Node current = hode.neste;
         int nr = 0;
 

@@ -2,13 +2,14 @@ package no.oslomet.cs.algdat.Oblig2;
 
 public class MainTest {
     public static void main(String[] args) {
-        Character[] c = {'A','B','C','D','E','F','G','H','I','J',};
-        DobbeltLenketListe<Character> liste = new DobbeltLenketListe<>(c);
-        System.out.println(
-                liste.subliste(3,8));  // [D, E, F, G, H]
-        System.out.println(liste.subliste(5,5));  // []
-        System.out.println(liste.subliste(8,liste.antall()));  // [I, J]
-        // System.out.println(liste.subliste(0,11));  // skal kaste unntak
+        Integer[] i = {};
+        DobbeltLenketListe<Integer> iliste = new DobbeltLenketListe<>(i);
+        String s = iliste.subliste(0, 0).toString();
+        System.out.println(s);
+        if (!iliste.subliste(0, 0).toString().equals("[]")) {
+            System.out.println
+                    ("Oppgave 3u: Sublisten til en tom liste skal være tom!");
+        }
 
     }
 }
