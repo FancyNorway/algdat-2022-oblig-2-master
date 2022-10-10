@@ -520,7 +520,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 if(current.neste == null) break;
                 current = current.neste;
             }
-            if(current.neste == null) return;
+            if(current.neste == null) throw new NoSuchElementException();
 
             denne = current;     // p starter på den første i listen
             fjernOK = false;  // blir sann når next() kalles
