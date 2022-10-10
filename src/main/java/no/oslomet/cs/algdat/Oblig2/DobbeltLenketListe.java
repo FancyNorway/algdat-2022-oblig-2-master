@@ -226,7 +226,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean inneholder(T verdi) {
-        return indeksTil(verdi) < 0 ? false : true;
+        return indeksTil(verdi) >= 0;
     }
 
     private Node <T> finnNode(int indeks){
