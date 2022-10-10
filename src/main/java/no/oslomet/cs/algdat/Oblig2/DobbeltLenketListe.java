@@ -406,8 +406,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public void nullstill()
     {
         // Metode 1
-        Node current = hode.neste;
-        Node temp;
+        Node<T> current = hode.neste;
+        Node<T> temp;
 
         while (current != null) {
             current.verdi = null;
@@ -438,7 +438,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         s.append('[');
 
         // Starter på hode og sjekker om listen er tom
-        Node current = hode;
+        Node<T> current = hode;
         int listeAntall = antall();
         if (listeAntall == 0) {
             s.append(']');
@@ -469,7 +469,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         s.append('[');
 
         // Starter på Hale og sjekker om det er null
-        Node current = hale;
+        Node<T> current = hale;
         if (current == null) {
             s.append(']');
             return s.toString();
