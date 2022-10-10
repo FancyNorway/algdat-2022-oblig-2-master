@@ -232,7 +232,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private Node <T> finnNode(int indeks){
 
         if (indeks < antall/2){
-            Node current = hode;
+            Node<T> current = hode;
             int counter = -1;
             while(counter < indeks){
                 current = current.neste;
@@ -242,7 +242,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         }
         int counter = antall;
-        Node current = hale;
+        Node<T> current = hale;
         while (counter > indeks){
             current = current.forrige;
             counter--;
@@ -269,7 +269,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         int index = 0;
 
         if (hode == null) return -1;
-        Node current = hode;
+        Node<T> current = hode;
 
         while (current.neste != null)
         {
@@ -294,8 +294,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if (nyverdi == null) {
             throw new NullPointerException("Nyverdi kan ikke være null");
         }
-        Node listeNode = finnNode(indeks);
-        T gammelVerdi = (T) listeNode.verdi;
+        Node<T> listeNode = finnNode(indeks);
+        T gammelVerdi = listeNode.verdi;
         listeNode.verdi = nyverdi;
         endringer += 1;
         return gammelVerdi;
@@ -305,7 +305,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public boolean fjern(T verdi) {
         if(verdi == null) return false;
         if(antall == 0) return false;
-        Node current = hode.neste;
+        Node<T> current = hode.neste;
 
         if (antall == 1) {
             if (!verdi.equals(current.verdi)) return false;
@@ -320,7 +320,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         for(int i = 0; i < antall; i++){
             if (verdi.equals(current.verdi)){
                 if(i == 0){
-                    Node temp = current.neste;
+                    Node<T> temp = current.neste;
                     hode.neste = temp;
                     current.neste = null;
                     temp.forrige = null;
@@ -329,7 +329,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     return true;
                 }
                 if(i == antall-1){
-                    Node temp = current.forrige;
+                    Node<T> temp = current.forrige;
                     hale.forrige = temp;
                     current.forrige = null;
                     temp.neste = null;
@@ -337,8 +337,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     endringer += 1;
                     return true;
                 }
-                Node temp1 = current.forrige;
-                Node temp2 = current.neste;
+                Node<T> temp1 = current.forrige;
+                Node<T> temp2 = current.neste;
                 temp1.neste = temp2;
                 temp2.forrige = temp1;
                 current.neste = null;
@@ -359,11 +359,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(indeks > antall-1)
             throw new IndexOutOfBoundsException("indeks er for stor elr liten");
 
-        Node current = hode.neste;
+        Node<T> current = hode.neste;
         T verdi = hode.verdi;
 
         if (antall == 1) {
-            verdi = (T) current.verdi;
+            verdi = current.verdi;
             hode = null;
             hale = null;
             antall -= 1;
@@ -372,16 +372,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         for (int i = 0; i<antall; i++){
-            verdi = (T) current.verdi;
+            verdi = current.verdi;
             if(indeks == i) {
                 if(i == 0){
-                    Node temp = current.neste;
+                    Node<T> temp = current.neste;
                     temp.forrige = null;
                     hode.neste = temp;
                     break;
                 }
                 if(i == antall-1){
-                    Node temp = current.forrige;
+                    Node<T> temp = current.forrige;
                     temp.neste = null;
                     hale.forrige = temp;
                     break;
