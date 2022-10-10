@@ -312,14 +312,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         for(int i = 0; i < antall; i++){
             if (verdi == current.verdi){
-                antall -= 1;
-                endringer += 1;
-
                 if(i == 0){
                     Node temp = current.neste;
                     hode.neste = temp;
                     current.neste = null;
                     temp.forrige = null;
+                    antall -= 1;
+                    endringer += 1;
                     return true;
                 }
                 if(i == antall-1){
@@ -327,6 +326,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     hale.forrige = temp;
                     current.forrige = null;
                     temp.neste = null;
+                    antall -= 1;
+                    endringer += 1;
                     return true;
                 }
                 Node temp1 = current.forrige;
@@ -335,6 +336,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 temp2.forrige = temp1;
                 current.neste = null;
                 current.forrige = null;
+                antall -= 1;
+                endringer += 1;
                 return true;
             }
             current = current.neste;
