@@ -55,8 +55,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         if (!ikkeNullVerdi) return;
 
-        hode = new Node<T>(null, null, null);
-        hale = new Node<T>(null, null, null);
+        hode = new Node<>(null, null, null);
+        hale = new Node<>(null, null, null);
         Node<T> current = hode;
 
         for (int i = 0; i < a.length; i++) {
