@@ -129,7 +129,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public int antall() {
         if(tom()){
-            return 0;
+            return antall = 0;
         }
         int antall = 1;
         Node current = hode.neste;
