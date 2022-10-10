@@ -362,9 +362,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         Node current = hode.neste;
         T verdi = hode.verdi;
+
+        if (antall == 1) {
+            verdi = (T) current.verdi;
+            hode = null;
+            hale = null;
+            antall -= 1;
+            endringer += 1;
+            return verdi;
+        }
+
         for (int i = 0; i<antall; i++){
-            if(indeks == i ){
-                verdi = (T)current.verdi;
+            if(indeks == i) {
+                verdi = (T) current.verdi;
 
                 if(i == 0){
                     Node temp = current.neste;
