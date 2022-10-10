@@ -62,7 +62,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         for (int i = 0; i < a.length; i++) {
             if (a[i] != null) {
                 // Lager en ny node med verdi a[i]
-                Node nyNode = new Node<T>(a[i]);
+                Node <T> nyNode = new Node<>(a[i]);
 
                 // Legger til neste
                 current.neste = nyNode;
@@ -105,7 +105,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         DobbeltLenketListe<T> liste = new DobbeltLenketListe<>();
         liste.endringer = 0;
         if (hode == null) return liste;
-        Node current = hode.neste;
+        Node<T> current = hode.neste;
         int nr = 0;
 
         // Kommer til første node
@@ -117,7 +117,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         // Looper gjennom [fra, til>
         int index = 0;
         while (nr < til) {
-            liste.leggInn(index,(T) current.verdi);
+            liste.leggInn(index, current.verdi);
             current = current.neste;
             nr++;
             index++;
@@ -132,7 +132,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             return antall = 0;
         }
         int antall = 1;
-        Node current = hode.neste;
+        Node<T> current = hode.neste;
 
         while(current.neste != null){
             antall++;
