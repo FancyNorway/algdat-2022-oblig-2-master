@@ -157,13 +157,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if (tom()){
             hode = new Node<>(null, null, null);
             hale = new Node<>(null, null, null);
-            Node nyNode = new Node<>(verdi);
+            Node<T> nyNode = new Node<>(verdi);
             hode.neste = nyNode;
             hale.forrige = nyNode;
             return true;
         }
-        Node temp = hale.forrige;
-        Node nyNode = new Node<T>(verdi);
+        Node<T> temp = hale.forrige;
+        Node<T> nyNode = new Node<>(verdi);
         temp.neste = nyNode;
         nyNode.forrige = temp;
         hale.forrige = nyNode;
@@ -188,8 +188,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         // Verdien skal legges først
         if (indeks == 0)
         {
-            Node temp = hode.neste;
-            Node nyNode = new Node(verdi);
+            Node<T> temp = hode.neste;
+            Node<T> nyNode = new Node<>(verdi);
             nyNode.neste = temp;
             hode.neste = nyNode;
             temp.forrige = nyNode;
@@ -199,8 +199,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         // Verdien skal legges bakerst
         if (indeks == antall-1)
         {
-            Node temp = hale.forrige;
-            Node nyNode = new Node(verdi);
+            Node<T> temp = hale.forrige;
+            Node<T> nyNode = new Node<>(verdi);
             hale.forrige = nyNode;
             nyNode.forrige = temp;
             temp.neste = nyNode;
@@ -209,14 +209,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         // verdien skal legges mellom to andre verdier
 
-        Node current = hode;
+        Node<T> current = hode;
         int posisjon = 0;
         while(posisjon < indeks){
             current = current.neste;
             posisjon++;
         }
-        Node temp = current.neste;
-        Node nyNode = new Node(verdi);
+        Node<T> temp = current.neste;
+        Node<T> nyNode = new Node<>(verdi);
         nyNode.neste = temp;
         nyNode.forrige = current;
         temp.forrige = nyNode;
