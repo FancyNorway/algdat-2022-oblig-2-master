@@ -507,8 +507,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     private class DobbeltLenketListeIterator implements Iterator<T> {
         private Node<T> denne;
-        private boolean fjernOK;
-        private int iteratorendringer;
+        private boolean fjernOK; // warning er fra kildekode
+        private int iteratorendringer; // warning er fra kildekode
 
         private DobbeltLenketListeIterator() {
             denne = hode;     // p starter på den første i listen
