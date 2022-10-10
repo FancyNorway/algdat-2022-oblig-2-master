@@ -408,7 +408,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public void nullstill()
     {
-        // Måte 1
+        // Metode 1
         Node current = hode.neste;
         Node temp;
 
@@ -426,6 +426,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         hale = null;
         antall = 0;
         endringer += 1;
+
+        // Metode 2
+        /*
+        while (antall > 0) {
+            fjern(0);
+        }
+         */
     }
 
     @Override
