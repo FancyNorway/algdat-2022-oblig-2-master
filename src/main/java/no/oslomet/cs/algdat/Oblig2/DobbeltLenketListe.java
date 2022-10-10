@@ -519,8 +519,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             while (teller < indeks){
                 if(current.neste == null) break;
                 current = current.neste;
+                teller++;
             }
-            if(current.neste == null) throw new NoSuchElementException();
+            if(current.neste == null) return;
+                //throw new NoSuchElementException();
 
             denne = current;     // p starter på den første i listen
             fjernOK = false;  // blir sann når next() kalles
