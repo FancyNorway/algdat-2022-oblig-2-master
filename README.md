@@ -44,10 +44,22 @@ returnerer vi indeksen til denne verdien. Hvis verdien ikke finnes, eller listen
 returneres indeks -1
 
 
-I oppgave 5 
+I oppgave 5 lagde vi metoden void leggInn(int indeks, T verdi) som legger inn en verdi i listen med posisjon indeks.
+Denne metoden tar for seg tilfeller når verdien enten skal legges inn først eller sist. I tillegg til om listen
+er tom fra før av. Om indeksen er lovlig, altså om den er større enn antall og mindre enn 0. Den sjekker også om
+verdien som prøves å legge inn er en null-verdi, for dette kastes en NullPointerException. I slutten av metoden
+så oppdateres også antall og endringer.
 
 
-I oppgave 6 
+I oppgave 6 lagde vi to metoder. Den første var T fjern(int indeks). Denne fjernet verdien som lå indeksen til
+paratemeren, i tillegg til at den returnerte verdien som ble fjernet. Her måtte vi sjekke tilfeller som når
+parameteren var en indeks som ikke eksisterer i listen. I tillegg til indeks = 0 og indeks = antall-1. Vi sjekket også
+tilfellet der listen bare hadde 1 element fra før av.
+Den andre metoden var metoden boolean fjern(T verdi) som fjernet det første tilfellet av parameter-verdien og 
+returnerte true. Hvis verdien var  = null returnerte metoden false, og hvis verdien ikke fantes ble det også returnert
+false.
+I begge oppgavene sørget vi også for at at antall og endringer ble oppdatert.
+
 
 
 I oppgave 7 er metode 1 ca 25% raskere enn metode 2. Derfor valgte vi å bruke den. Metode 1
