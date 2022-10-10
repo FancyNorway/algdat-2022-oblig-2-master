@@ -516,8 +516,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             if(iteratorendringer != endringer) throw new ConcurrentModificationException();
             if(!hasNext()) throw new NoSuchElementException();
             fjernOK = true;
+            T verdi = denne.verdi;
             denne = denne.neste;
-            return denne.forrige.verdi;
+            return verdi;
 
         }
 
