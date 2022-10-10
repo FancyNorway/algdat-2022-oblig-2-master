@@ -474,24 +474,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public Iterator<T> iterator() {
-        Iterator<T> iterator = new Iterator<T>() {
-            @Override
-            public boolean hasNext() {
-                return false;
-            }
-
-            @Override
-            public T next() {
-                return null;
-            }
-        };
-        return iterator;
+        return new DobbeltLenketListeIterator();
 
 
     }
 
     public Iterator<T> iterator(int indeks) {
-        indeksKontroll(indeks, true);
+        indeksKontroll(indeks, false);
         return iterator();
     }
 
