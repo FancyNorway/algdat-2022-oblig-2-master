@@ -15,6 +15,10 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 
 # Oppgavebeskrivelse
 
+Vi har to warings en på linje 510 og en på 511, disse kommer fra kildekode. Derfor velger vi
+å ikke endre noe fordi i oppgave 8 står det "Metoden boolean  hasNext() og konstruktøren 
+public  DobbeltLenketListeIterator() i klassen DobbeltLenketListeIterator er ferdigkodet og skal ikke endres."
+
 I oppgave 1 Lagde vi først int antall() metoden, og deretter boolean tom() metoden. 
 Deretter lagde vi konstruktøren public DobbeltLenketListe(T[] a). I denne brukte vi requireNonNull metoden for
 sørge for tabellen ikke var null. Og deretter en forAll løkke for å sørge for at vi ikke fikk med noen null-verdier.
