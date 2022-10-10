@@ -306,37 +306,38 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean fjern(T verdi) {
-        Node current = hode;
+        Node current = hode.neste;
         if(verdi == null) return false;
-            if(!tom()){
-            for(int i = 0; i < antall; i++){
-                if (verdi == current.verdi){
-                    if(i == 0){
-                        Node temp = current.neste;
-                        hode.neste = temp;
-                        current.neste = null;
-                        temp.forrige = null;
-                        return true;
-                    }
-                    if(i == antall-1){
-                        Node temp = current.forrige;
-                        hale.forrige = temp;
-                        current.forrige = null;
-                        temp.neste = null;
-                        return true;
-                    }
-                    Node temp1 = current.forrige;
-                    Node temp2 = current.neste;
-                    temp1.neste = temp2;
-                    temp2.forrige = temp1;
-                    current.neste = null;
-                    current.forrige = null;
-                    return true;
-                }
-                current = current.neste;
-            }
+        if(tom()) return false;
+
+        for(int i = 0; i < antall; i++){
+            if (verdi == current.verdi){
                 antall -= 1;
                 endringer += 1;
+
+                if(i == 0){
+                    Node temp = current.neste;
+                    hode.neste = temp;
+                    current.neste = null;
+                    temp.forrige = null;
+                    return true;
+                }
+                if(i == antall-1){
+                    Node temp = current.forrige;
+                    hale.forrige = temp;
+                    current.forrige = null;
+                    temp.neste = null;
+                    return true;
+                }
+                Node temp1 = current.forrige;
+                Node temp2 = current.neste;
+                temp1.neste = temp2;
+                temp2.forrige = temp1;
+                current.neste = null;
+                current.forrige = null;
+                return true;
+            }
+            current = current.neste;
         }
         return false;
     }
