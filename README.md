@@ -35,7 +35,16 @@ Hode, hale og selg selv som noder og legger pekeren riktig. Er ikke listen tom o
 og legger den bakerst. Fikser pekrne slik at hale perker på nyNode og den forrige siste peker på nyNode.
 
 
-I oppgave 3
+I oppgave 3 startet vi med å lage finnNode(int indeks) som først sjekker om indexen er mindre enn antall/2
+da starter vi på hode og jobber oss fremover ved hjelp av en while løkke og Node = Node.neste logikk når 
+teller == index retunerer vi Noden. Samme logikk hvis antall/2 er større enn index bare at vi da strater
+bakers og bruker Node = Node.forrige. Metoen public T hent(int index) index kontrol +
+return finnNode(indeks).verdi; som er ganske selvforklarende finner Noden og retunerer verdien.
+oppdater(int indeks, T nyverdi) har en indeks sjekk og nyverdi sjekk først. så bruker den finnNode()
+og så henter den ut gammel verdi, oppdater veriden og retunerer gammelverdi.
+public Liste<T> subliste(int fra, int til) sjekker verdier først med fratilKontroll() så oppreter den en
+ny DobbeltLenketListe. så looper den seg til fra. å setter inn alle verdier i intervallet [fra, til>
+ved hjelp av en while loop og leggInn(). Til slutt retunerer den den nye listen.
 
 
 I oppgave 4 lagde vi først metoden int indeksTil(T verdi) som skal finne den første verdien i listen. 
