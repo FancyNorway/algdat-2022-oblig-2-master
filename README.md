@@ -47,6 +47,12 @@ I oppgave 7 er metode 1 ca 25% raskere enn metode 2. Derfor valgte vi å bruke d
 et løst ved å starte på hode.neste og bruke en while løkke til å loope gjennom alle Noder og
 sette innholde til null. Metode 2 fjerner den 0 noden helt til listen er tom med hjelp av en while løkke.
 
-I oppgave 8 
+I oppgave 8 lagde vi metoden T next() ved å først sjekke om iteratorendringer var lik endringer,
+og deretter sjekke om noden hadde en neste-verdi som er null ved å bruke hasNext()-metoden. Vi sjekker også om
+denne-pekeren er lik hodet. Etter disse sjekkene setter vi fjernOK lik true, og returnerer verdien til denne, og
+sette denne = denne.neste. Vi lager også metoden Iterator<T> iterator() som returnerer en instans av
+DobbeltLenketListeIterator-klassen. Vi lager en ny konstruktør i klassen, som tar inn en parameter indeks. 
+Deretter lager vi en ny metode Iterator<T> iterator(int indeks) som først bruker en indekssjekk, og deretter returnerer
+en instans av iteratorklassen ved hjelp av konsttrukøren i fra oppgave c.
 
 
