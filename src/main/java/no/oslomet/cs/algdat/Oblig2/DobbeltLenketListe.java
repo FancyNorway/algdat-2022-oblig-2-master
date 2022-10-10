@@ -474,12 +474,25 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public Iterator<T> iterator() {
-        throw new UnsupportedOperationException();
+        Iterator<T> iterator = new Iterator<T>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public T next() {
+                return null;
+            }
+        };
+        return iterator;
+
 
     }
 
     public Iterator<T> iterator(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks, true);
+        return iterator();
     }
 
     private class DobbeltLenketListeIterator implements Iterator<T> {
@@ -494,7 +507,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         private DobbeltLenketListeIterator(int indeks) {
-            throw new UnsupportedOperationException();
+            Node<T> current = hode.neste;
+            int teller = 0;
+            while (teller < indeks) current = current.neste;
+
+            denne = current;     // p starter på den første i listen
+            fjernOK = false;  // blir sann når next() kalles
+            iteratorendringer = endringer;  // teller endringer
+
         }
 
         @Override
