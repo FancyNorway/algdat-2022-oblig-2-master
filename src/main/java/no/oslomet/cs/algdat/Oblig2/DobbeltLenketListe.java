@@ -146,10 +146,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean tom() {
-        if(hode == null){
-            return true;
-        }
-        return false;
+        return hode == null;
     }
 
     @Override
