@@ -387,8 +387,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     break;
                 }
 
-                Node temp1 = current.forrige;
-                Node temp2 = current.neste;
+                Node<T> temp1 = current.forrige;
+                Node<T> temp2 = current.neste;
                 temp1.neste = temp2;
                 temp2.forrige = temp1;
                 current.neste = null;
@@ -417,7 +417,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             current = current.neste;
 
             temp.neste = null;
-            temp = null;
         }
         hode = null;
         hale = null;
