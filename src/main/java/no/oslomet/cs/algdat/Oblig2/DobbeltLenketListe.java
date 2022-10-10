@@ -311,7 +311,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Node current = hode.neste;
 
         if (antall == 1) {
-            if (verdi != current.verdi) return false;
+            if (!verdi.equals(current.verdi)) return false;
 
             hode.neste = hale;
             hale.forrige = hode;
@@ -319,7 +319,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         for(int i = 0; i < antall; i++){
-            if (verdi == current.verdi){
+            if (verdi.equals(current.verdi)){
                 if(i == 0){
                     Node temp = current.neste;
                     hode.neste = temp;
