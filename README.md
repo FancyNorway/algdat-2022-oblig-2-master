@@ -23,7 +23,14 @@ I oppgave 1 Lagde vi først int antall() metoden, og deretter boolean tom() meto
 Deretter lagde vi konstruktøren public DobbeltLenketListe(T[] a). I denne brukte vi requireNonNull metoden for
 sørge for tabellen ikke var null. Og deretter en forAll løkke for å sørge for at vi ikke fikk med noen null-verdier.
 
-I oppgave 2
+I oppgave 2 fungerer String toString() ved at den Starter på hode og sjekker om listen er tom. er den tom
+retunerer den da "[]". så looper den gjennom Nodene og legger til verdien i Stringbuilderen ved hjelp av 
+append(). Til sull er det bare en Node igjen og derfor har vi sjekken slik at Stringen ikke skal bli sånn 
+"[A, B, C, ]". Men slik "[A, B, C]". Metoen String omvendtString() Fungerer på samme måte bare at den starter
+på halen og går bakover.
+Metoen boolen leggInn(T verdi) sjekker først at det ikke er en null verdi. Hvis listen er tom lager den
+Hode, hale og selg selv som noder og legger pekeren riktig. Er ikke listen tom oppreter vi en Node med verdi
+og legger den bakerst. Fikser pekrne slik at hale perker på nyNode og den forrige siste peker på nyNode.
 
 I oppgave 3
 
