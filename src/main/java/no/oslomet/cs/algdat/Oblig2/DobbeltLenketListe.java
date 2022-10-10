@@ -516,7 +516,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         private DobbeltLenketListeIterator(int indeks) {
             Node<T> current = hode.neste;
             int teller = 0;
-            while (teller < indeks) current = current.neste;
+            while (teller < indeks){
+                if(current.neste == null) break;
+                current = current.neste;
+            }
+            if(current.neste == null) return;
 
             denne = current;     // p starter på den første i listen
             fjernOK = false;  // blir sann når next() kalles
