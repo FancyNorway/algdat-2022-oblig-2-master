@@ -19,9 +19,11 @@ Vi har to warings en på linje 510 og en på 511, disse kommer fra kildekode. De
 å ikke endre noe fordi i oppgave 8 står det "Metoden boolean  hasNext() og konstruktøren 
 public  DobbeltLenketListeIterator() i klassen DobbeltLenketListeIterator er ferdigkodet og skal ikke endres."
 
+
 I oppgave 1 Lagde vi først int antall() metoden, og deretter boolean tom() metoden. 
 Deretter lagde vi konstruktøren public DobbeltLenketListe(T[] a). I denne brukte vi requireNonNull metoden for
 sørge for tabellen ikke var null. Og deretter en forAll løkke for å sørge for at vi ikke fikk med noen null-verdier.
+
 
 I oppgave 2 fungerer String toString() ved at den Starter på hode og sjekker om listen er tom. er den tom
 retunerer den da "[]". så looper den gjennom Nodene og legger til verdien i Stringbuilderen ved hjelp av 
@@ -32,20 +34,26 @@ Metoen boolen leggInn(T verdi) sjekker først at det ikke er en null verdi. Hvis
 Hode, hale og selg selv som noder og legger pekeren riktig. Er ikke listen tom oppreter vi en Node med verdi
 og legger den bakerst. Fikser pekrne slik at hale perker på nyNode og den forrige siste peker på nyNode.
 
+
 I oppgave 3
+
 
 I oppgave 4 lagde vi først metoden int indeksTil(T verdi) som skal finne den første verdien i listen. 
 Dette gjør vi ved å gå gjennom den lenkede listen med current.next til current.verdi = verdi. Når vi finner verdien 
 returnerer vi indeksen til denne verdien. Hvis verdien ikke finnes, eller listen er tom eller verdien er null så 
 returneres indeks -1
 
+
 I oppgave 5 
 
+
 I oppgave 6 
+
 
 I oppgave 7 er metode 1 ca 25% raskere enn metode 2. Derfor valgte vi å bruke den. Metode 1
 et løst ved å starte på hode.neste og bruke en while løkke til å loope gjennom alle Noder og
 sette innholde til null. Metode 2 fjerner den 0 noden helt til listen er tom med hjelp av en while løkke.
+
 
 I oppgave 8 lagde vi metoden T next() ved å først sjekke om iteratorendringer var lik endringer,
 og deretter sjekke om noden hadde en neste-verdi som er null ved å bruke hasNext()-metoden. Vi sjekker også om
