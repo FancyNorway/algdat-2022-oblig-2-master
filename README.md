@@ -36,7 +36,9 @@ I oppgave 5
 
 I oppgave 6 
 
-I oppgave 7 er metode 1 ca25% raskere enn metode 2. Derfor valgte vi å bruke den.
+I oppgave 7 er metode 1 ca 25% raskere enn metode 2. Derfor valgte vi å bruke den. Metode 1
+et løst ved å starte på hode.neste og bruke en while løkke til å loope gjennom alle Noder og
+sette innholde til null. Metode 2 fjerner den 0 noden helt til listen er tom med hjelp av en while løkke.
 
 I oppgave 8 
 
