@@ -23,7 +23,10 @@ I oppgave 2
 
 I oppgave 3
 
-I oppgave 4 lagde vi først metoden int indeksTil(T verdi) som skal finne den første verdien i listen
+I oppgave 4 lagde vi først metoden int indeksTil(T verdi) som skal finne den første verdien i listen. 
+Dette gjør vi ved å gå gjennom den lenkede listen med current.next til current.verdi = verdi. Når vi finner verdien 
+returnerer vi indeksen til denne verdien. Hvis verdien ikke finnes, eller listen er tom eller verdien er null så 
+returneres indeks -1
 
 I oppgave 5 
 
